@@ -15,17 +15,39 @@ else
    exit 1
 fi
 
+
+install_csi_mods() {
+    MOD_DIR=$(~/wfautomation/scripts/get_uname_from_Image.sh)
+
+    if [[ -d /media/rishikesh/rootfs/lib/modules/$MOD_DIR ]];then 
+        sudo cp ~/ti-linux-kernel/build/drivers/media/platform/ti/j721e-csi2rx/j721e-csi2rx.ko \
+          /media/rishikesh/rootfs/lib/modules/$MOD_DIR/kernel/drivers/media/platform/ti/j721e-csi2rx/
+        echo " "
+        echo "Installed CSI modules in $MOD_DIR"
+    else
+        echo "Fresh module install required !!!"
+        exit 1
+    fi
+}
+
 # Install everything by default
 if [[ -z "$task" ]]; then
-  echo "Installing dtbs Image modules"
+  echo "Installing dtbs Image | only relevant modules"
   sudo cp $output/arch/arm64/boot/Image \
     $root/boot
   sudo cp $output/arch/arm64/boot/dts/ti/*.dtb $output/arch/arm64/boot/dts/ti/*.dtbo \
     $root/boot/dtb/ti/
-  sudo make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- O=$output \
-    INSTALL_MOD_PATH=$root modules_install
-  sync
-  exit
+
+  install_csi_mods
+  ret=$?
+
+  if [[ -n $ret ]]; then
+    sync
+    exit 
+  else
+    echo "Note: Won't reboot for liefr"
+    exit 1
+  fi
 fi
 
 # Check valid action is entered
@@ -49,11 +71,9 @@ if [[ $task == "dt" ]]; then
     $root/boot/dtb/ti/
 fi
 
-# Install Modules
+# Install relevant Modules
 if [[ $task == "modules" ]]; then
-  sudo make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- O=$output \
-    INSTALL_MOD_PATH=$root modules_install
+  install_csi_mods
 fi
 
 sync
-

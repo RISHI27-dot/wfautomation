@@ -1,0 +1,47 @@
+[user]
+    email = d-gole@ti.com
+    name = Dhruva Gole
+[core]
+    gitproxy = none for ti.com
+    gitproxy = /home/dhruva/git-proxy.sh
+    editor = vim
+    abbrev = 12
+[http]
+    ; proxy = http://wwwinproxy.itg.ti.com:80
+    proxy = http://webproxy.ext.ti.com:80
+[https]
+    ; proxy = http://wwwinproxy.itg.ti.com:80
+    proxy = http://webproxy.ext.ti.com:80
+[sendemail]
+    # aliasesfile = /home/gowtham/.git_aliases
+    aliasfiletype = mutt
+    aliasesFile = ~/.muttrc
+    # here use msmtp, it will pick server details from its config
+    smtpserver = /usr/bin/msmtp
+    smtpServer = smtp.mail.ti.com
+    smtpServerPort = 25
+[merge]
+    tool = vscode
+[mergetool "vscode"]
+    cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
+[mergetool]
+    keepBackup = false
+[b4]
+    trailer-order = cc*,fixes*,reported*,suggested*,original*,co-*,signed-off*,tested*,reviewed*,acked*,link*,*
+    thanks-am-template = /home/dhruva/my_workspace/myscripts/b4/thanks_template.txt
+    thanks-treename = "https://bitbucket.itg.ti.com/scm/lcpdpublicdom/connectivity.git"
+    thanks-commit-url-mask = "https://bitbucket.itg.ti.com/projects/LCPDPUBLICDOM/repos/connectivity/commits/%s"
+    midmask = "https://serenity.dal.design.ti.com/lore/linux-patch-review/%s"
+    linkmask = "https://serenity.dal.design.ti.com/lore/linux-patch-review/%s"
+[maintenance]
+    repo = /home/dhruva/my_workspace/kernels/dirty/u-linux-lpm
+    repo = /home/dhruva/my_workspace/kernels/dirty/linux_scmi_dev
+    repo = /home/dhruva/my_workspace/kernels/clean/linux-next
+    repo = /home/dhruva/my_workspace/kernels/clean/ti-linux
+    repo = /home/dhruva/my_workspace/presil-dev/am62lite-presil-build/tfa
+    repo = /home/dhruva/my_workspace/uboots/clean/arm-trusted-firmware
+
+[patatt]
+  signingkey = ed25519:20240919
+  selector = 20240919
+
