@@ -12,7 +12,7 @@ if [ -d "$boot" ]; then
   echo "Valid SD card found..."
 else
    echo "SD card not found"
-   exit
+   exit 1
 fi
 
 # Install everything by default
@@ -56,3 +56,4 @@ if [[ $task == "modules" ]]; then
 fi
 
 sync
+
