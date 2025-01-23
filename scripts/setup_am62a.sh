@@ -10,7 +10,6 @@ else
 fi
 
 sudo cp ~/wfautomation/board/mosiac.sh $mount/rootfs/opt/edgeai-gst-apps/
-sudo cp ~/wfautomation/board/fakesink.sh $mount/rootfs/opt/edgeai-gst-apps/
 sudo cp ~/wfautomation/board/sim_hang_mosiac.sh $mount/rootfs/opt/edgeai-gst-apps/
 sudo cp $mount/rootfs/opt/edgeai-gst-apps/scripts/setup_cameras_v3link.sh $mount/rootfs/opt/edgeai-gst-apps/f.sh
 sudo cp ~/wfautomation/board/uEnv.txt $mount/BOOT

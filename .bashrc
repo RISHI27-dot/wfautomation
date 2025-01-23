@@ -196,6 +196,14 @@ alias scpsyncf='~/wfautomation/scripts/sync_kernel_quick.sh'
 alias scpsyncr='~/wfautomation/scripts/scp_rb_helper.sh'
 alias scpsyncfr='~/wfautomation/scripts/scp_rb_helper_quick.sh'
 
-alias setup_am62a_edgeai='~/wfautomation/scripts/setup_am62a_edgeai.sh'
+alias scpsyncf_norb='~/wfautomation/scripts/no_rb.sh'
 
-alias get_local_uname='~/wfautomation/scripts/get_uname_from_Image.sh'
+alias setup_am62a_edgeai='~/wfautomation/scripts/setup_am62a_edgeai.sh'
+alias setup_am62a_edgeai_upstream='~/wfautomation/scripts/setup_am62a_edgeai_upstream.sh'
+alias setup_tiovxapps='sudo cp -r ~/edgeai-tiovx-apps /media/rishikesh/rootfs/opt/ && sync'
+
+alias scpsync_tiovx='~/wfautomation/scripts/sync_tiovx.sh'
+alias scpsync_tiovxf='~/wfautomation/scripts/sync_tiovx_quick.sh'
+
+alias getlu='~/wfautomation/scripts/get_uname_from_Image.sh'
+
