@@ -22,6 +22,8 @@ install_csi_mods() {
     if [[ -d /media/rishikesh/rootfs/lib/modules/$MOD_DIR ]];then 
         sudo cp ~/ti-linux-kernel/build/drivers/media/platform/ti/j721e-csi2rx/j721e-csi2rx.ko \
           /media/rishikesh/rootfs/lib/modules/$MOD_DIR/kernel/drivers/media/platform/ti/j721e-csi2rx/
+        sudo cp ~/ti-linux-kernel/build/drivers/media/platform/cadence/cdns-csi2rx.ko \
+          /media/rishikesh/rootfs/lib/modules/$MOD_DIR/kernel/drivers/media/platform/cadence/
         echo " "
         echo "Installed CSI modules in $MOD_DIR"
     else
