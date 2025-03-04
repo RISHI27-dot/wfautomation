@@ -20,6 +20,8 @@ if [[ -z "$task" ]]; then
   echo "Installing dtbs Image modules"
   sudo cp $output/arch/arm64/boot/Image \
     $root/boot
+  # To remove stale dtb and dtbo
+  sudo rm $root/boot/dtb/ti/*.dtb && sudo rm $root/boot/dtb/ti/*.dtbo
   sudo cp $output/arch/arm64/boot/dts/ti/*.dtb $output/arch/arm64/boot/dts/ti/*.dtbo \
     $root/boot/dtb/ti/
   sudo make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- O=$output \
