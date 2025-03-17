@@ -13,5 +13,9 @@ echo "TAKE CARE OF THE FOLLOWING:
 2. Rebased to the latest branch 
 3. Added the PENDING / HACK / FROMLIST tag 
 4. Added subject to the cover letter 
+5. Add test logs
+6. Add upstream plan
+7. Add dependency if any
+8. Add link to Jira if any solved
 "
 echo -e "${red}+++++++++++++++++++++++++++++++++++++++++${reset}"

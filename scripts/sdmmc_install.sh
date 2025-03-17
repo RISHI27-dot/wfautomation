@@ -19,6 +19,8 @@ if [[ -z "$task" ]]; then
   echo "Installing dtbs Image modules"
   sudo cp $output/arch/arm64/boot/Image \
     $mount_point/root/boot
+  sudo rm $mount_point/root/boot/dtb/ti/*.dtb
+  sudo rm $mount_point/root/boot/dtb/ti/*.dtbo
   sudo cp $output/arch/arm64/boot/dts/ti/*.dtb $output/arch/arm64/boot/dts/ti/*.dtbo \
     $mount_point/root/boot/dtb/ti/
   sudo make -C /home/rishikesh/ti-linux-kernel/ ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- O=$output \
