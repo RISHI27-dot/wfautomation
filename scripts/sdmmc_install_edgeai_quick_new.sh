@@ -24,6 +24,8 @@ install_csi_mods() {
           /media/rishikesh/rootfs/lib/modules/$MOD_DIR/kernel/drivers/media/platform/ti/j721e-csi2rx/
         sudo cp ~/ti-linux-kernel/build/drivers/media/platform/cadence/cdns-csi2rx.ko \
           /media/rishikesh/rootfs/lib/modules/$MOD_DIR/kernel/drivers/media/platform/cadence/
+        sudo cp ~/ti-linux-kernel/build/drivers/media/i2c/ov2312.ko \
+          /media/rishikesh/rootfs/lib/modules/$MOD_DIR/kernel/drivers/media/i2c/
         echo " "
         echo "Installed CSI modules in $MOD_DIR"
     else

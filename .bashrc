@@ -153,19 +153,20 @@ alias rb='~/wfautomation/scripts/switchboard.sh 1'
 alias lie='~/wfautomation/scripts/sdmmc_install_edgeai.sh /media/rishikesh ~/ti-linux-kernel/build'
 alias lief='~/wfautomation/scripts/sdmmc_install_edgeai_quick_new.sh /media/rishikesh ~/ti-linux-kernel/build'
 
-#sli = linux-install (short for ease of use) from spare 
 alias sli='~/wfautomation/scripts/sdmmc_install.sh /media/rishikesh ~/spare/ti-linux-kernel/build'
-#slie = linux-install-edgeai from spare
+alias uli='~/wfautomation/scripts/sdmmc_install.sh /media/rishikesh ~/upstream/linux/build'
 alias slie='~/wfautomation/scripts/sdmmc_install_edgeai.sh /media/rishikesh ~/spare/ti-linux-kernel/build'
+alias ulie='~/wfautomation/scripts/sdmmc_install_edgeai.sh /media/rishikesh ~/upstream/linux/build'
 
 
 alias lier='~/wfautomation/scripts/sdmmc_install_edgeai.sh /media/rishikesh ~/ti-linux-kernel/build && rb'
 alias liefr='~/wfautomation/scripts/sdmmc_install_edgeai_quick_new.sh /media/rishikesh ~/ti-linux-kernel/build && rb'
 
-#sli = linux-install (short for ease of use) from spare 
 alias slir='~/wfautomation/scripts/sdmmc_install.sh /media/rishikesh ~/spare/ti-linux-kernel/build && rb'
-#slie = linux-install-edgeai from spare
 alias slier='~/wfautomation/scripts/sdmmc_install_edgeai.sh /media/rishikesh ~/spare/ti-linux-kernel/build && rb'
+
+alias ulir='~/wfautomation/scripts/sdmmc_install.sh /media/rishikesh ~/upstream/linux/build && rb'
+alias ulier='~/wfautomation/scripts/sdmmc_install_edgeai.sh /media/rishikesh ~/upstream/linux/build && rb'
 
 #To build config for linux (mainline)
 alias l-clmake='make -j16 defconfig ARCH=arm64 O=build CROSS_COMPILE=aarch64-none-linux-gnu-'
@@ -180,18 +181,15 @@ alias scddts='cd ~/spare/ti-linux-kernel/arch/arm64/boot/dts/ti/'
 alias lg='ls | grep '
 
 alias pixelviewer='./pix_view_new/PixelViewer'
-alias ctoken='cat ~/token | xclip -selection clipboard'
+alias ctoken='cat ~/token.txt | xclip -selection clipboard'
 alias pctoken='cat ~/ptoken.txt | xclip -selection clipboard'
 alias coverlay='echo "ti/k3-am62x-sk-csi2-v3link-fusion.dtbo ti/k3-v3link-imx219-0-0.dtbo ti/k3-v3link-imx219-0-1.dtbo ti/k3-v3link-imx219-0-2.dtbo ti/k3-v3link-imx219-0-3.dtbo
 " | xclip -selection clipboard'
 alias cpipe='cat ~/pipe.txt | xclip -selection clipboard'
 
-
 # sync kernel using scp
-
 alias scpsync='~/wfautomation/scripts/sync_kernel.sh'
 alias scpsyncf='~/wfautomation/scripts/sync_kernel_quick.sh'
-
 
 alias scpsyncr='~/wfautomation/scripts/scp_rb_helper.sh'
 alias scpsyncfr='~/wfautomation/scripts/scp_rb_helper_quick.sh'
@@ -206,4 +204,7 @@ alias scpsync_tiovx='~/wfautomation/scripts/sync_tiovx.sh'
 alias scpsync_tiovxf='~/wfautomation/scripts/sync_tiovx_quick.sh'
 
 alias getlu='~/wfautomation/scripts/get_uname_from_Image.sh'
+alias sgetlu='~/wfautomation/scripts/get_uname_from_Image_spare.sh'
 
+alias checkpatch='~/wfautomation/scripts/final_checkpatch.sh'
+alias cgit-send='cat ~/git-patch-send-email-coms'
