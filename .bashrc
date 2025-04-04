@@ -188,11 +188,11 @@ alias coverlay='echo "ti/k3-am62x-sk-csi2-v3link-fusion.dtbo ti/k3-v3link-imx219
 alias cpipe='cat ~/pipe.txt | xclip -selection clipboard'
 
 # sync kernel using scp
-alias scpsync='~/wfautomation/scripts/sync_kernel.sh'
-alias scpsyncf='~/wfautomation/scripts/sync_kernel_quick.sh'
+alias scpsync='~/wfautomation/scripts/sync_kernel.sh ~/ti-linux-kernel/build/'
+alias scpsyncf='~/wfautomation/scripts/sync_kernel_quick.sh ~/ti-linux-kernel/build/'
 
-alias scpsyncr='~/wfautomation/scripts/scp_rb_helper.sh'
-alias scpsyncfr='~/wfautomation/scripts/scp_rb_helper_quick.sh'
+alias scpsyncr='~/wfautomation/scripts/scp_rb_helper.sh ~/ti-linux-kernel/build/'
+alias scpsyncfr='~/wfautomation/scripts/scp_rb_helper_quick.sh ~/ti-linux-kernel/build/'
 
 alias scpsyncf_norb='~/wfautomation/scripts/no_rb.sh'
 

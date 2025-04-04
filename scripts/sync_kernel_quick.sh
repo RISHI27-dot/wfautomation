@@ -1,7 +1,7 @@
 #!/bin/bash
 
-board_ip=$1
-output=~/ti-linux-kernel/build/
+output=$1
+board_ip=$2
 
 MOD_DIR=$(~/wfautomation/scripts/get_uname_from_Image.sh)
 

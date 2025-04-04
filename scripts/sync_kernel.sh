@@ -1,7 +1,7 @@
 #!/bin/bash
 
-board_ip=$1
-output=~/ti-linux-kernel/build/
+board_ip=$2
+output=$1
 
 # Image
 scp $output/arch/arm64/boot/Image root@$board_ip:/boot/
