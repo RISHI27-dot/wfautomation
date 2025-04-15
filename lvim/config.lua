@@ -3,6 +3,17 @@
 -- Video Tutorials: https://www.youtube.com/watch?v=sFA9kX-Ud_c&list=PLhoH5vyxr6QqGu0i7tt_XoVK9v-KvZ3m6
 -- Forum: https://www.reddit.com/r/lunarvim/
 -- Discord: https://discord.com/invite/Xb9B4Ny
+--
+--
+-- local lspconfig = require'lspconfig'
+-- lspconfig.clangd.setup({ settings = { clangd = { semanticHighlighting = false,},},})
+--
+vim.api.nvim_set_hl(0, 'Type', {ctermfg = 0, fg = 'none'})
+vim.api.nvim_set_hl(0, 'TypeDef', {ctermfg = 0, fg = 'none'})
+
+-- For buffer navigation
+vim.api.nvim_set_keymap('n', '<S-l>', ':bnext<CR>', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<S-h>', ':bprevious<CR>', { noremap = true, silent = true})
 
 
 -- Custom configuration
