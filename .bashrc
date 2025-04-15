@@ -205,6 +205,7 @@ alias scpsync_tiovxf='~/wfautomation/scripts/sync_tiovx_quick.sh'
 
 alias getlu='~/wfautomation/scripts/get_uname_from_Image.sh'
 alias sgetlu='~/wfautomation/scripts/get_uname_from_Image_spare.sh'
+alias ugetlu='~/wfautomation/scripts/get_uname_from_Image_upstream.sh'
 
 alias checkpatch='~/wfautomation/scripts/final_checkpatch.sh'
 alias cgit-send='cat ~/git-patch-send-email-coms'
