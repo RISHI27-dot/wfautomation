@@ -4,8 +4,8 @@
 
 # If not running interactively, don't do anything
 case $- in
-    *i*) ;;
-      *) return;;
+*i*) ;;
+*) return ;;
 esac
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -32,12 +32,12 @@ shopt -s checkwinsize
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
+  debian_chroot=$(cat /etc/debian_chroot)
 fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
+xterm-color | *-256color) color_prompt=yes ;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -46,42 +46,41 @@ esac
 #force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
+  if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+    # We have color support; assume it's compliant with Ecma-48
+    # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+    # a case would tend to support setf rather than setaf.)
+    color_prompt=yes
+  else
+    color_prompt=
+  fi
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+  PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+  PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
+xterm* | rxvt*)
+  PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+  ;;
+*) ;;
 esac
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  alias ls='ls --color=auto'
+  #alias dir='dir --color=auto'
+  #alias vdir='vdir --color=auto'
 
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
 fi
 
 # colored GCC warnings and errors
@@ -102,7 +101,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+  . ~/.bash_aliases
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -119,14 +118,14 @@ fi
 export http_proxy=http://webproxy.ext.ti.com:80
 export https_proxy=http://webproxy.ext.ti.com:80
 export ftp_proxy=http://webproxy.ext.ti.com:80
-export no_proxy=design.ti.com,itg.ti.com,ti.com,dal.design.ti.com
+export no_proxy=.ti.com
 
-export GIT_PROXY_COMMAND=~/Downloads/gitproxy
+export PATH="$HOME/neovim/bin:$PATH"
 
-export PATH=~/gcc-arm-10.3-2021.07-x86_64-aarch64-none-linux-gnu/bin:$PATH
+#######################################################################################################################
+
 export PATH=~/.local/bin:$PATH
-
-alias primar=kjjj
+export PATH=~/arm-gnu-toolchain-14.2.rel1-x86_64-aarch64-none-linux-gnu/bin:$PATH
 
 #To clean the kernel
 alias lmake-clean='make -j16 ARCH=arm64 O=build CROSS_COMPILE=aarch64-none-linux-gnu- mrproper'
@@ -158,7 +157,6 @@ alias uli='~/wfautomation/scripts/sdmmc_install.sh /media/rishikesh ~/upstream/l
 alias slie='~/wfautomation/scripts/sdmmc_install_edgeai.sh /media/rishikesh ~/spare/ti-linux-kernel/build'
 alias ulie='~/wfautomation/scripts/sdmmc_install_edgeai.sh /media/rishikesh ~/upstream/linux/build'
 
-
 alias lier='~/wfautomation/scripts/sdmmc_install_edgeai.sh /media/rishikesh ~/ti-linux-kernel/build && rb'
 alias liefr='~/wfautomation/scripts/sdmmc_install_edgeai_quick_new.sh /media/rishikesh ~/ti-linux-kernel/build && rb'
 
@@ -174,9 +172,10 @@ alias l-clmake='make -j16 defconfig ARCH=arm64 O=build CROSS_COMPILE=aarch64-non
 # SDMMC
 alias mmc='sudo minicom -D /dev/ttyUSB0'
 
-# CD alias to speed up changing directory to frequent ones 
+# CD alias to speed up changing directory to frequent ones
 alias cddts='cd ~/ti-linux-kernel/arch/arm64/boot/dts/ti/'
 alias scddts='cd ~/spare/ti-linux-kernel/arch/arm64/boot/dts/ti/'
+alias ucddts='cd ~/upstream/linux/arch/arm64/boot/dts/ti/'
 
 alias lg='ls | grep '
 
@@ -188,11 +187,15 @@ alias coverlay='echo "ti/k3-am62x-sk-csi2-v3link-fusion.dtbo ti/k3-v3link-imx219
 alias cpipe='cat ~/pipe.txt | xclip -selection clipboard'
 
 # sync kernel using scp
-alias scpsync='~/wfautomation/scripts/sync_kernel.sh ~/ti-linux-kernel/build/'
+
+alias scpsync='~/wfautomation/scripts/sync_kernel.sh ~/ti-linux-kernel/build'
 alias scpsyncf='~/wfautomation/scripts/sync_kernel_quick.sh ~/ti-linux-kernel/build/'
 
 alias scpsyncr='~/wfautomation/scripts/scp_rb_helper.sh ~/ti-linux-kernel/build/'
 alias scpsyncfr='~/wfautomation/scripts/scp_rb_helper_quick.sh ~/ti-linux-kernel/build/'
+
+alias uscpsyncf='~/wfautomation/scripts/sync_kernel_quick.sh ~/upstream/linux/build/'
+alias uscpsyncfr='~/wfautomation/scripts/scp_rb_helper_quick.sh ~/upstream/linux/build/'
 
 alias scpsyncf_norb='~/wfautomation/scripts/no_rb.sh'
 
@@ -209,3 +212,7 @@ alias ugetlu='~/wfautomation/scripts/get_uname_from_Image_upstream.sh'
 
 alias checkpatch='~/wfautomation/scripts/final_checkpatch.sh'
 alias cgit-send='cat ~/git-patch-send-email-coms'
+
+alias cssh='cat .ssh/id_ed25519.pub | xclip -selection clipboard'
+
+alias kpv='~/kernel_patch_verify/kpv -V -C -L -c arch/arm64/configs/defconfig -n'
