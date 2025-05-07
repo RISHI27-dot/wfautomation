@@ -1,8 +1,8 @@
 #!/bin/bash
 
 mount_point=$1 # /media/rishikesh/
-output=$2 # ~/ti-linux-kernel/build
-task=$3 #Image | dt | modules
+output=$2      # ~/ti-linux-kernel/build
+task=$3        #Image | dt | modules
 
 root=$mount_point/rootfs
 boot=$mount_point/BOOT
@@ -11,27 +11,26 @@ boot=$mount_point/BOOT
 if [ -d "$boot" ]; then
   echo "Valid SD card found..."
 else
-   echo "SD card not found"
-   exit 1
+  echo "SD card not found"
+  exit 1
 fi
 
-
 install_csi_mods() {
-    MOD_DIR=$(~/wfautomation/scripts/get_uname_from_Image.sh)
+  MOD_DIR=$(~/wfautomation/scripts/get_uname_from_Image_upstream.sh)
 
-    if [[ -d /media/rishikesh/rootfs/lib/modules/$MOD_DIR ]];then 
-        sudo cp ~/ti-linux-kernel/build/drivers/media/platform/ti/j721e-csi2rx/j721e-csi2rx.ko \
-          /media/rishikesh/rootfs/lib/modules/$MOD_DIR/kernel/drivers/media/platform/ti/j721e-csi2rx/
-        sudo cp ~/ti-linux-kernel/build/drivers/media/platform/cadence/cdns-csi2rx.ko \
-          /media/rishikesh/rootfs/lib/modules/$MOD_DIR/kernel/drivers/media/platform/cadence/
-        sudo cp ~/ti-linux-kernel/build/drivers/media/i2c/ov2312.ko \
-          /media/rishikesh/rootfs/lib/modules/$MOD_DIR/kernel/drivers/media/i2c/
-        echo " "
-        echo "Installed CSI modules in $MOD_DIR"
-    else
-        echo "Fresh module install required !!!"
-        exit 1
-    fi
+  if [[ -d /media/rishikesh/rootfs/lib/modules/$MOD_DIR ]]; then
+    sudo cp $output/drivers/media/platform/ti/j721e-csi2rx/j721e-csi2rx.ko \
+      /media/rishikesh/rootfs/lib/modules/$MOD_DIR/kernel/drivers/media/platform/ti/j721e-csi2rx/
+    sudo cp $output/drivers/media/platform/cadence/cdns-csi2rx.ko \
+      /media/rishikesh/rootfs/lib/modules/$MOD_DIR/kernel/drivers/media/platform/cadence/
+    # sudo cp $output/drivers/media/i2c/ov2312.ko \
+    #   /media/rishikesh/rootfs/lib/modules/$MOD_DIR/kernel/drivers/media/i2c/
+    echo " "
+    echo "Installed CSI modules in $MOD_DIR"
+  else
+    echo "Fresh module install required !!!"
+    exit 1
+  fi
 }
 
 # Install everything by default
@@ -47,7 +46,7 @@ if [[ -z "$task" ]]; then
 
   if [[ -n $ret ]]; then
     sync
-    exit 
+    exit
   else
     echo "Note: Won't reboot for liefr"
     exit 1
