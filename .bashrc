@@ -159,6 +159,7 @@ alias ulie='~/wfautomation/scripts/sdmmc_install_edgeai.sh /media/rishikesh ~/up
 
 alias lier='~/wfautomation/scripts/sdmmc_install_edgeai.sh /media/rishikesh ~/ti-linux-kernel/build && rb'
 alias liefr='~/wfautomation/scripts/sdmmc_install_edgeai_quick_new.sh /media/rishikesh ~/ti-linux-kernel/build && rb'
+alias uliefr='~/wfautomation/scripts/sdmmc_install_edgeai_quick_new.sh /media/rishikesh ~/upstream/linux/build && rb'
 
 alias slir='~/wfautomation/scripts/sdmmc_install.sh /media/rishikesh ~/spare/ti-linux-kernel/build && rb'
 alias slier='~/wfautomation/scripts/sdmmc_install_edgeai.sh /media/rishikesh ~/spare/ti-linux-kernel/build && rb'
@@ -170,7 +171,8 @@ alias ulier='~/wfautomation/scripts/sdmmc_install_edgeai.sh /media/rishikesh ~/u
 alias l-clmake='make -j16 defconfig ARCH=arm64 O=build CROSS_COMPILE=aarch64-none-linux-gnu-'
 
 # SDMMC
-alias mmc='sudo minicom -D /dev/ttyUSB0'
+alias mmc0='sudo minicom -D /dev/ttyUSB0'
+alias mmc4='sudo minicom -D /dev/ttyUSB4'
 
 # CD alias to speed up changing directory to frequent ones
 alias cddts='cd ~/ti-linux-kernel/arch/arm64/boot/dts/ti/'
@@ -194,8 +196,11 @@ alias scpsyncf='~/wfautomation/scripts/sync_kernel_quick.sh ~/ti-linux-kernel/bu
 alias scpsyncr='~/wfautomation/scripts/scp_rb_helper.sh ~/ti-linux-kernel/build/'
 alias scpsyncfr='~/wfautomation/scripts/scp_rb_helper_quick.sh ~/ti-linux-kernel/build/'
 
-alias uscpsyncf='~/wfautomation/scripts/sync_kernel_quick.sh ~/upstream/linux/build/'
-alias uscpsyncfr='~/wfautomation/scripts/scp_rb_helper_quick.sh ~/upstream/linux/build/'
+alias uscpsync='~/wfautomation/scripts/sync_kernel.sh ~/upstream/linux/build'
+alias uscpsyncr='~/wfautomation/scripts/scp_rb_helper.sh ~/upstream/linux/build/'
+
+alias uscpsyncf='~/wfautomation/scripts/sync_kernel_quick_upstream.sh ~/upstream/linux/build/'
+alias uscpsyncfr='~/wfautomation/scripts/scp_rb_helper_quick_upstream.sh ~/upstream/linux/build/'
 
 alias scpsyncf_norb='~/wfautomation/scripts/no_rb.sh'
 
