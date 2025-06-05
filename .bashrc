@@ -147,6 +147,7 @@ alias li='~/wfautomation/scripts/sdmmc_install.sh /media/rishikesh ~/ti-linux-ke
 
 # To reboot the board using switch board
 alias rb='~/wfautomation/scripts/switchboard.sh 1'
+alias rv='~/wfautomation/scripts/switchboard.sh 2'
 
 #lie = linux-install-edgeai
 alias lie='~/wfautomation/scripts/sdmmc_install_edgeai.sh /media/rishikesh ~/ti-linux-kernel/build'
@@ -184,7 +185,9 @@ alias lg='ls | grep '
 alias pixelviewer='./pix_view_new/PixelViewer'
 alias ctoken='cat ~/token.txt | xclip -selection clipboard'
 alias pctoken='cat ~/ptoken.txt | xclip -selection clipboard'
-alias coverlay='echo "ti/k3-am62x-sk-csi2-v3link-fusion.dtbo ti/k3-v3link-imx219-0-0.dtbo ti/k3-v3link-imx219-0-1.dtbo ti/k3-v3link-imx219-0-2.dtbo ti/k3-v3link-imx219-0-3.dtbo
+alias coverlay='echo "/dtb/ti/k3-am62x-sk-csi2-v3link-fusion.dtbo dtb/ti/k3-v3link-imx219-0-0.dtbo dtb/ti/k3-v3link-imx219-0-1.dtbo dtb/ti/k3-v3link-imx219-0-2.dtbo dtb/ti/k3-v3link-imx219-0-3.dtbo dtb/ti/k3-am62a7-sk-edgeai.dtbo
+" | xclip -selection clipboard'
+alias coverlay_old='echo "ti/k3-am62x-sk-csi2-v3link-fusion.dtbo ti/k3-v3link-imx219-0-0.dtbo ti/k3-v3link-imx219-0-1.dtbo ti/k3-v3link-imx219-0-2.dtbo ti/k3-v3link-imx219-0-3.dtbo
 " | xclip -selection clipboard'
 alias cpipe='cat ~/pipe.txt | xclip -selection clipboard'
 
@@ -221,3 +224,5 @@ alias cgit-send='cat ~/git-patch-send-email-coms'
 alias cssh='cat .ssh/id_ed25519.pub | xclip -selection clipboard'
 
 alias kpv='~/kernel_patch_verify/kpv -V -C -L -c arch/arm64/configs/defconfig -n'
+
+alias cpscripts='sudo cp ~/wfautomation/board/am62a/*.sh /media/rishikesh/rootfs/opt/edgeai-gst-apps/'
