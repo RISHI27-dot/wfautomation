@@ -16,7 +16,7 @@ else
 fi
 
 install_csi_mods() {
-  MOD_DIR=$(~/wfautomation/scripts/get_uname_from_Image_upstream.sh)
+  MOD_DIR=$(~/wfautomation/scripts/get_uname_from_Image.sh)
 
   if [[ -d /media/rishikesh/rootfs/lib/modules/$MOD_DIR ]]; then
     sudo cp $output/drivers/media/platform/ti/j721e-csi2rx/j721e-csi2rx.ko \

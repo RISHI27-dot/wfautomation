@@ -1,8 +1,8 @@
 #!/bin/bash
 
 mount_point=$1 # /media/rishikesh/
-output=$2 # ~/ti-linux-kernel/build
-task=$3 #Image | dt | modules
+output=$2      # ~/ti-linux-kernel/build
+task=$3        #Image | dt | modules
 
 root=$mount_point/rootfs
 boot=$mount_point/BOOT
@@ -11,8 +11,8 @@ boot=$mount_point/BOOT
 if [ -d "$boot" ]; then
   echo "Valid SD card found..."
 else
-   echo "SD card not found"
-   exit 1
+  echo "SD card not found"
+  exit 1
 fi
 
 # Install everything by default
@@ -58,4 +58,3 @@ if [[ $task == "modules" ]]; then
 fi
 
 sync
-

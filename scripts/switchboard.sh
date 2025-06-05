@@ -7,10 +7,9 @@ if [[ -z $sw_no ]]; then
 fi
 
 rst() {
-  ssh admin@rido "uom set relay/outlets/$sw_no/state false" && \
-  sleep 1 && \
-  ssh admin@rido "uom set relay/outlets/$sw_no/state true"
+  ssh admin@rido "uom set relay/outlets/$sw_no/state false" &&
+    sleep 1 &&
+    ssh admin@rido "uom set relay/outlets/$sw_no/state true"
 }
 
 rst
-
