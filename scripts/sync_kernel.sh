@@ -7,6 +7,9 @@ output=$1
 scp $output/arch/arm64/boot/Image root@$board_ip:/boot/
 
 # DTBS
+# remove stale dtbs
+ssh root@$board_ip 'sudo rm $/root/boot/dtb/ti/*.dtb'
+ssh root@$board_ip 'sudo rm $/root/boot/dtb/ti/*.dtbo'
 scp $output/arch/arm64/boot/dts/ti/* root@$board_ip:/boot/dtb/ti
 
 # Modules
@@ -20,4 +23,3 @@ ssh root@$board_ip 'tar -xf /mnt/kernel_modules.tar.bz2 -C /lib/modules/'
 
 # Sync
 ssh root@$board_ip 'sync'
-
