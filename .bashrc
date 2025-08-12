@@ -132,15 +132,15 @@ alias lmake-clean='make -j16 ARCH=arm64 O=build CROSS_COMPILE=aarch64-none-linux
 # To build linux kernel configuration
 alias clmake='make -j16 defconfig ti_arm64_prune.config ARCH=arm64 O=build CROSS_COMPILE=aarch64-none-linux-gnu-'
 # To build the entire kernel
-alias lmake='make -j16 ARCH=arm64 O=build CROSS_COMPILE=aarch64-none-linux-gnu-'
+alias lmake='sudo -v && make -j16 ARCH=arm64 O=build CROSS_COMPILE=aarch64-none-linux-gnu-'
 # To build only modules
 alias mlmake='make -j16 ARCH=arm64 O=build CROSS_COMPILE=aarch64-none-linux-gnu- modules'
 # To build only modules
 alias ilmake='make -j16 ARCH=arm64 O=build CROSS_COMPILE=aarch64-none-linux-gnu- Image'
 # To build only dts
 alias dlmake='make -j16 ARCH=arm64 O=build CROSS_COMPILE=aarch64-none-linux-gnu- dtbs'
-
-#To install Image, dtbo, modules in sd card at /media/rishikesh
+#To build config for linux (mainline)
+alias l-clmake='make -j16 defconfig ARCH=arm64 O=build CROSS_COMPILE=aarch64-none-linux-gnu-'
 
 #li = linux-install (short for ease of use)
 alias li='~/wfautomation/scripts/sdmmc_install.sh /media/rishikesh ~/ti-linux-kernel/build'
@@ -169,9 +169,6 @@ alias slier='~/wfautomation/scripts/sdmmc_install_edgeai.sh /media/rishikesh ~/s
 alias ulir='~/wfautomation/scripts/sdmmc_install.sh /media/rishikesh ~/upstream/linux/build && rb'
 alias ulier='~/wfautomation/scripts/sdmmc_install_edgeai.sh /media/rishikesh ~/upstream/linux/build && rb'
 
-#To build config for linux (mainline)
-alias l-clmake='make -j16 defconfig ARCH=arm64 O=build CROSS_COMPILE=aarch64-none-linux-gnu-'
-
 # SDMMC
 alias mmc0='sudo minicom -D /dev/ttyUSB0'
 alias mmc4='sudo minicom -D /dev/ttyUSB4'
@@ -183,7 +180,7 @@ alias ucddts='cd ~/upstream/linux/arch/arm64/boot/dts/ti/'
 
 alias lg='ls | grep '
 
-alias pixelviewer='./pixview/PixelViewer'
+alias pixelviewer='~/pixview/PixelViewer'
 alias ctoken='cat ~/token.txt | xclip -selection clipboard'
 alias pctoken='cat ~/ptoken.txt | xclip -selection clipboard'
 #alias coverlay='echo "/dtb/ti/k3-am62x-sk-csi2-v3link-fusion.dtbo dtb/ti/k3-v3link-imx219-0-0.dtbo dtb/ti/k3-v3link-imx219-0-1.dtbo dtb/ti/k3-v3link-imx219-0-2.dtbo dtb/ti/k3-v3link-imx219-0-3.dtbo dtb/ti/k3-am62a7-sk-edgeai.dtbo
@@ -205,6 +202,12 @@ alias uscpsyncr='~/wfautomation/scripts/scp_rb_helper.sh ~/upstream/linux/build/
 
 alias uscpsyncf='~/wfautomation/scripts/sync_kernel_quick_upstream.sh ~/upstream/linux/build/'
 alias uscpsyncfr='~/wfautomation/scripts/scp_rb_helper_quick_upstream.sh ~/upstream/linux/build/'
+
+alias sscpsync='~/wfautomation/scripts/sync_kernel.sh ~/spare/ti-linux-kernel/build/'
+alias sscpsyncr='~/wfautomation/scripts/scp_rb_helper.sh ~/spare/ti-linux-kernel/build/'
+
+alias sscpsyncf='~/wfautomation/scripts/sync_kernel_quick_upstream.sh ~/spare/ti-linux-kernel/build/'
+alias sscpsyncfr='~/wfautomation/scripts/scp_rb_helper_quick_upstream.sh ~/spare/ti-linux-kernel/buildg'
 
 alias scpsyncf_norb='~/wfautomation/scripts/no_rb.sh'
 

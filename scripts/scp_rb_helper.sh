@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo -v
+
 output=$1
 board_ip=$2
 

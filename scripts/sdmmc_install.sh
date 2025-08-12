@@ -1,8 +1,8 @@
 #!/bin/bash
 
 mount_point=$1 # /media/rishikesh/
-output=$2 # /build
-task=$3 # Image | dt | modules
+output=$2      # /build
+task=$3        # Image | dt | modules
 
 root=$mount_point/root
 boot=$mount_point/boot
@@ -10,8 +10,8 @@ boot=$mount_point/boot
 if [ -d "$boot" ]; then
   echo "Valid SD card found..."
 else
-   echo "SD card not found"
-   exit
+  echo "SD card not found"
+  exit
 fi
 
 #Install everyting by default
